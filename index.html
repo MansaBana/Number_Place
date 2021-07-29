@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sudoku</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <script defer src="script.js"></script>
+</head>
+<body id="body">
+    <nav class="navbar navbar-light " style="font-size: 25px; font-family: sans-serif; background-color: whitesmoke;">
+        <div>
+            <button id="rule_game" onclick="rules()" style="text-align: center;">Rules</button>
+        </div>
+    </nav>
+    <br><br>
+    <div style="position: absolute; top: 100px; font-size: large; visibility: hidden;" id="rule">
+        <div style="margin-left: 20%;  margin-right: 20%; font-size: large ;">
+        <h1 style="text-align: center;">RULES</h1>
+            <p>
+                <ul>
+                    <li>
+                        There are 9 rows from A to I and 9 columns from 1 to 9 in total 81 diffrent cells.
+                    </li>
+                    <li>
+                        These 81 cells are divided in 9 squre of equal size 3 x 3 each containing 9 cells.
+                    </li>
+                    <li>
+                        There are some no. given in red in some cells and you have have to fill remaining cells according to given cells so that each row , column and all those subsquare contains all numbers from 1 to 9. 
+                    </li>
+                </ul>    
+            </p>
+            <h1 style="text-align: center;">CONTROLS</h1>
+            <p>
+                <div style="text-align: center;">
+                    <img  src="inputs.png">
+                </div>
+                <ul>
+                    <li>
+                        Write Position at which you want to insert number in Position.
+                    </li>
+                    <li>
+                        Format of writing position is :- first write character corresponding to that row and then and number corresponding to column.
+                    </li>
+                </ul>    
+            </p>
+            <br>
+            <p>
+                <div style="text-align: center;">
+                    <img  src="new.png">
+                </div>
+                <ul>
+                    <li>
+                        This button will give you new Puzzle to solve.
+                    </li>
+                </ul>    
+            </p>
+            <br>
+            <p>
+                <div style="text-align: center;">
+                    <img  src="solve.png">
+                </div>
+                <ul>
+                    <li>
+                        Press this button to check your anwer and get correct ansers.
+                    </li>
+                </ul>    
+            </p>
+            <h1 style="text-align: center;">RESULTS</h1>
+            <p>
+                <span style="color: orange; background-color: orange;">aaa</span>
+                Means that you entered wrong number<br>
+                <span style="color: green; background-color: green;">aaa</span>
+                Means that you didn't entered any number<br>
+                <span style="color: #DC3545; background-color: #DC3545;">aaa</span>
+                Means that the number was given there already<br>
+                <span style="color: purple; background-color: purple;">aaa</span>
+                Means You entered correct number<br>
+            </p>
+    </div></div>
+    <div id="puzz" style="top: 100px; font-size: large; visibility: visible;">
+        <div id="container">
+            <div class="lsb tsb" name="0" id="0"></div>
+            <div class="tsb ldb" name="1" id="1"></div>
+            <div class="tsb ldb" name="2" id="2"></div>
+            <div class="tsb lsb" id="3"></div>
+            <div class="tsb ldb" name="4" id="4"></div>
+            <div class="tsb ldb" id="5"></div>
+            <div class="tsb lsb" id="6"></div>
+            <div class="tsb ldb" id="7"></div>
+            <div class="tsb rsb ldb" id="8"></div>
+            <div class="lsb tdb" id="9"></div>
+            <div class="ldb tdb" id="10"></div>
+            <div class="ldb tdb" id="11"></div>
+            <div class="lsb tdb" id="12"></div>
+            <div class="ldb tdb" id="13"></div>
+            <div class="ldb tdb" id="14"></div>
+            <div class="lsb tdb" id="15"></div>
+            <div class="ldb tdb" id="16"></div>
+            <div class="rsb ldb tdb" id="17"></div>
+            <div class="lsb bsb tdb" id="18"></div>
+            <div class="bsb ldb tdb" id="19"></div>
+            <div class="bsb ldb tdb" id="20"></div>
+            <div class="bsb lsb tdb" id="21"></div>
+            <div class="bsb ldb tdb" id="22"></div>
+            <div class="bsb ldb tdb" id="23"></div>
+            <div class="bsb lsb tdb" id="24"></div>
+            <div class="bsb ldb tdb" id="25"></div>
+            <div class="bsb rsb ldb tdb" id="26"></div>
+            <div class="lsb" id="27"></div>
+            <div class="ldb" id="28"></div>
+            <div class="ldb" id="29"></div>
+            <div class="lsb" id="30"></div>
+            <div class="ldb" id="31"></div>
+            <div class="ldb" id="32"></div>
+            <div class="lsb" id="33"></div>
+            <div class="ldb" id="34"></div>
+            <div class="rsb ldb" id="35"></div>
+            <div class="lsb tdb" id="36"></div>
+            <div class="ldb tdb" id="37"></div>
+            <div class="ldb tdb" id="38"></div>
+            <div class="lsb tdb" id="39"></div>
+            <div class="ldb tdb" id="40"></div>
+            <div class="ldb tdb" id="41"></div>
+            <div class="lsb tdb" id="42"></div>
+            <div class="ldb tdb" id="43"></div>
+            <div class="rsb ldb tdb" id="44"></div>
+            <div class="lsb bsb tdb" id="45"></div>
+            <div class="bsb ldb tdb" id="46"></div>
+            <div class="bsb ldb tdb" id="47"></div>
+            <div class="bsb lsb tdb" id="48"></div>
+            <div class="bsb ldb tdb" id="49"></div>
+            <div class="bsb ldb tdb" id="50"></div>
+            <div class="bsb lsb tdb" id="51"></div>
+            <div class="bsb ldb tdb" id="52"></div>
+            <div class="bsb rsb ldb tdb" id="53"></div>
+            <div class="lsb" id="54"></div>
+            <div class="ldb" id="55"></div>
+            <div class="ldb" id="56"></div>
+            <div class="lsb" id="57"></div>
+            <div class="ldb" id="58"></div>
+            <div class="ldb" id="59"></div>
+            <div class="lsb" id="60"></div>
+            <div class="ldb" id="61"></div>
+            <div class="rsb ldb" id="62"></div>
+            <div class="lsb tdb" id="63"></div>
+            <div class="ldb tdb" id="64"></div>
+            <div class="ldb tdb" id="65"></div>
+            <div class="lsb tdb" id="66"></div>
+            <div class="ldb tdb" id="67"></div>
+            <div class="ldb tdb" id="68"></div>
+            <div class="lsb tdb" id="69"></div>
+            <div class="ldb tdb" id="70"></div>
+            <div class="rsb ldb tdb" id="71"></div>
+            <div class="lsb bsb tdb" id="72"></div>
+            <div class="bsb ldb tdb" id="73"></div>
+            <div class="bsb ldb tdb" id="74"></div>
+            <div class="bsb lsb tdb" id="75"></div>
+            <div class="bsb ldb tdb" id="76"></div>
+            <div class="bsb tdb ldb" id="77"></div>
+            <div class="bsb lsb tdb" id="78"></div>
+            <div class="bsb ldb tdb" id="79"></div>
+            <div class="bsb rsb ldb tdb" id="80"></div>
+        </div>
+        <br>
+        <div id="formm">
+            <label for="location">Position</label>
+            <input type="text" style="width: 50px;" name="location" id="location" placeholder="A1">
+            <label style="margin-left: 20px;" for="value">Value</label>
+            <input type="text" style="width: 50px;" name="value" placeholder="1-9" id="value">
+            <br><br>
+            <button type="button" class="btn btn-success" id="place">Place</button>
+        </div>
+        <br>
+        <div id="buttons">
+            <button type="button" class="btn btn-danger" id="generate-sudoku">Get New
+                Puzzle</button>&nbsp;&nbsp;&nbsp;&nbsp;
+            <button type="button" class="btn btn-success" id="solve">Solution</button>
+        </div>
+    </div>
+</body>
+
+</html>
